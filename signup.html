@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sow Easy - Sign Up</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .bg-image {
+            background-image: url('images/bg_white.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(10px);
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .signup-form {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 140px;
+        }
+        h1 {
+            color: #3a5311;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select, input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            background-color: #f2d13d;
+            border: none;
+            color: #3a5311;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #e0c235;
+        }
+        .form-group {   
+            display: none;
+        }
+        .form-group.active {    
+            display: block;
+        }
+        .login-account {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .login-account a {
+            color: #3a5311;
+            text-decoration: none;
+        }
+        .login-account a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="container">
+        <div class="signup-form">
+            <img src="images/Sow_Easy_Logo.png" alt="Sow Easy Logo" class="logo">
+            <h1>Sign Up for Sow Easy</h1>
+
+            <form action="dashboard.html" method="post" onsubmit="return login(event)">
+                <select id="user-type" name="user_type" required>
+                    <option value="">Select User Type</option>
+                    <option value="farmer">Farmer</option>
+                    <option value="buyer">Buyer</option>
+                </select>
+                <div id="farmer-form" class="form-group">
+                    <input type="text" name="farmer_name" placeholder="Full Name" required>
+                    <input type="email" name="farmer_email" placeholder="Email" required>
+                    <input type="password" name="farmer_password" placeholder="Password" required>
+                    <input type="password" name="farmer_confirm_password" placeholder="Confirm Password" required>
+                    <input type="text" name="farmer_id" placeholder="Farmer ID" required>
+                    <input type="text" name="farmer_location" placeholder="Location" required>
+                </div>
+                <div id="buyer-form" class="form-group">
+                    <input type="text" name="buyer_name" placeholder="Full Name" required>
+                    <input type="email" name="buyer_email" placeholder="Email" required>
+                    <input type="password" name="buyer_password" placeholder="Password" required>
+                    <input type="password" name="buyer_confirm_password" placeholder="Confirm Password" required>
+                    <input type="text" name="buyer_gstin" placeholder="GSTIN Number" required>
+                    <input type="text" name="buyer_location" placeholder="Location" required>
+                </div>
+                <button type="submit" class="submit-button">Sign Up</button>
+                <div class="login-account">
+                    <a href="login.html">Already have an account?</a>
+                </div>
+            </form>
+            <script>
+                function login(event) {
+                    event.preventDefault();
+                    var userType = document.querySelector('select[name="user_type"]').value;
+                    if (userType === 'farmer') {
+                        window.location.href = 'farmer_dashboard.html';
+                    } else if (userType === 'buyer') {
+                        window.location.href = 'buyer_dashboard.html';
+                    }
+                    return false;
+                }
+                </script>
+        </div>
+    </div>
+    <script>
+        document.getElementById('user-type').addEventListener('change', function() {
+            document.getElementById('farmer-form').classList.remove('active');
+            document.getElementById('buyer-form').classList.remove('active');
+            if (this.value === 'farmer') {
+                document.getElementById('farmer-form').classList.add('active');
+            } else if (this.value === 'buyer') {
+                document.getElementById('buyer-form').classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

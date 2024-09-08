@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sow Easy - Buyer Dashboard</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e6f3e6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #f2d13d;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar img {
+            height: 100px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar li a {
+            color: #3a5311;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        .section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .crop-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .search-form {
+            margin-bottom: 20px;
+        }
+        .search-form input, .search-form select {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit-button {
+            background-color: #f2d13d;
+            border: none;
+            color: #3a5311;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #e0c235;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <img src="images/Sow_Easy_Logo.png" alt="Sow Easy Logo">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#transactions">Transactions</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="chatbox.html">Chatbox</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1>Welcome, Buyer!</h1>
+            <div id="home" class="section">
+                <h2>Top Seasonal Crops</h2>
+                <div class="crop-card">
+                    <h3>Wheat</h3>
+                    <p>Available Quantity: 500kg</p>
+                    <p>Average Price: ₹20 per kg</p>
+                    <button class="submit-button">View Details</button>
+                </div>
+                <!-- More crop cards can be added here -->
+            </div>
+            <div id="transactions" class="section">
+                <h2>Transactions</h2>
+                <!-- Add transaction content here -->
+            </div>
+            <div id="search" class="section">
+                <h2>Search Crops</h2>
+                <form class="search-form">
+                    <input type="text" placeholder="Crop name">
+                    <input type="text" placeholder="Location">
+                    <input type="number" placeholder="Min price">
+                    <input type="number" placeholder="Max price">
+                    <input type="number" placeholder="Min quantity">
+                    <input type="number" placeholder="Max quantity">
+                    <button type="submit" class="submit-button">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
